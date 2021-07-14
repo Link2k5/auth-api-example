@@ -19,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
+
+Route::middleware('auth:api')->group(function(){
+    Route::get('/users', [AuthController::class, 'index'])->name('api.users');
+});

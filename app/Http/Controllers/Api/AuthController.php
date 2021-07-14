@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
@@ -11,6 +12,14 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class AuthController extends Controller
 {
     use AuthenticatesUsers;
+
+
+    public function index()
+    {
+        return response()->json([
+            User::all()
+        ], 200);
+    }
 
     public function login(Request $request)
     {
