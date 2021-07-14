@@ -21,5 +21,8 @@ class FileUploadController extends Controller
                     'filename' => $file->getClientOriginalName(),
                 ], 200);
         }
+        return response()->json([
+            'message' => 'Falha ao tentar fazer upload de arquivo',
+        ], 200);
     }
 }
