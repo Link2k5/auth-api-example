@@ -41,7 +41,16 @@ class AuthController extends Controller
                         ], 400);
     }
 
-    public function logout()
+    public function refresh(): \Illuminate\Http\JsonResponse
+    {
+        $token = Auth::guard('api')->refresh();
+
+        return response()->json([
+            'refresh_token' => $token,
+        ], 200);
+    }
+
+    public function logout(): \Illuminate\Http\Response
     {
         Auth::guard('api')->logout();
 
