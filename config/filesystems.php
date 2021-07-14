@@ -34,6 +34,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        'public_folder' => [
+            'driver' => 'local',
+            'root' => public_path(),
+        ],
 
         'public' => [
             'driver' => 'local',
